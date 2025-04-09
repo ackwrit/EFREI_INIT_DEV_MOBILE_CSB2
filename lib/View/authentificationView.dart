@@ -1,4 +1,5 @@
 import 'package:firstappg2_efrei_2025/View/dashboardView.dart';
+import 'package:firstappg2_efrei_2025/controller/firebaseHelper.dart';
 import 'package:flutter/material.dart';
 
 class MyAuthentification extends StatefulWidget {
@@ -9,6 +10,9 @@ class MyAuthentification extends StatefulWidget {
 }
 
 class _MyAuthentificationState extends State<MyAuthentification> {
+  //variables
+  TextEditingController mail = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +34,7 @@ class _MyAuthentificationState extends State<MyAuthentification> {
             ),
             SizedBox(height: 15),
             TextField(
+              controller: mail,
               decoration: InputDecoration(
                 hintText: "Entrer votre mail",
                 prefixIcon: Icon(Icons.mail),
@@ -40,6 +45,7 @@ class _MyAuthentificationState extends State<MyAuthentification> {
             ),
             SizedBox(height: 15),
             TextField(
+              controller: password,
               decoration: InputDecoration(
                 hintText: "Entrer votre password",
                 prefixIcon: Icon(Icons.lock),
@@ -59,7 +65,15 @@ class _MyAuthentificationState extends State<MyAuthentification> {
               child: Text("Connexion"),
             ),
             SizedBox(height: 15),
-            TextButton(onPressed: () {}, child: Text("Inscription")),
+            TextButton(
+              onPressed: () {
+                MyFirebaseHelper().createCompte(
+                  email: mail.text,
+                  password: password.text,
+                );
+              },
+              child: Text("Inscription"),
+            ),
           ],
         ),
       ),
