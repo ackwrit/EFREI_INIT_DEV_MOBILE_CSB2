@@ -59,7 +59,7 @@ class _MyAuthentificationState extends State<MyAuthentification> {
               child: Text("Connexion"),
             ),
             SizedBox(height: 15),
-            ElevatedButton(onPressed: () {}, child: Text("Inscription")),
+            TextButton(onPressed: () {}, child: Text("Inscription")),
           ],
         ),
       ),
