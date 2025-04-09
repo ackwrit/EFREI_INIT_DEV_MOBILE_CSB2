@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1026362298026",
+    "project_id": "efreicsb2",
+    "storage_bucket": "efreicsb2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026362298026:android:765ed59974c16636f90ad3",
+        "android_client_info": {
+          "package_name": "com.example.firstappg2_efrei_2025"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyL1YA_b44uC5DBaQ2DN6-xgBxcbfV6AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
