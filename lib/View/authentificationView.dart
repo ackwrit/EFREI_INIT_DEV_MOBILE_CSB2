@@ -1,5 +1,6 @@
 import 'package:firstappg2_efrei_2025/View/dashboardView.dart';
 import 'package:firstappg2_efrei_2025/controller/firebaseHelper.dart';
+import 'package:firstappg2_efrei_2025/globale.dart';
 import 'package:flutter/material.dart';
 
 class MyAuthentification extends StatefulWidget {
@@ -57,20 +58,56 @@ class _MyAuthentificationState extends State<MyAuthentification> {
             SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyDashBoard()),
-                );
+                MyFirebaseHelper()
+                    .connexionCompte(email: mail.text, password: password.text)
+                    .then((onValue) {
+                      setState(() {
+                        monUtilisateur = onValue;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyDashBoard(),
+                          ),
+                        );
+                      });
+                    })
+                    .catchError((onError) {
+                      showAdaptiveDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog.adaptive(
+                            content: Text("Erreur"),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text("OK"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    });
               },
               child: Text("Connexion"),
             ),
             SizedBox(height: 15),
             TextButton(
               onPressed: () {
-                MyFirebaseHelper().createCompte(
-                  email: mail.text,
-                  password: password.text,
-                );
+                MyFirebaseHelper()
+                    .createCompte(email: mail.text, password: password.text)
+                    .then((onValue) {
+                      setState(() {
+                        monUtilisateur = onValue;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyDashBoard(),
+                          ),
+                        );
+                      });
+                    });
               },
               child: Text("Inscription"),
             ),
