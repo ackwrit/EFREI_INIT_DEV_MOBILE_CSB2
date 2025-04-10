@@ -1,3 +1,4 @@
+import 'package:firstappg2_efrei_2025/View/AllPersonnView.dart';
 import 'package:firstappg2_efrei_2025/globale.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _MyDashBoard extends State<MyDashBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Nouvelle page"), centerTitle: true),
-      body: Text(monUtilisateur.email),
+      body: AllPersonView(),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
